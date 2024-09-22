@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Management</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Employee Management</h1>
+  <button onclick="PrintDeveloperbyMap()">Print Developers by Map</button>
+  <button onclick="PrintDeveloperbyForEach()">Print Developers by ForEach</button>
+  <button onclick="addData()">Add Employee</button>
+  <button onclick="removeAdmin()">Remove Admin</button>
+  <button onclick="ConcatinateArray()">Concatenate Arrays</button>
+
+  <script src="script.js">
+    // Initial array of employee objects
+let employees = [
+  {id: 1, name: "john", age: "18", profession: "developer"},
+  {id: 2, name: "jack", age: "20", profession: "developer"},
+  {id: 3, name: "karen", age: "19", profession: "admin"}
+];
+
+// 1. Print Developers using the .map() function
+function PrintDeveloperbyMap() {
+  employees.map((employee) => {
+    if (employee.profession === "developer") {
+      console.log(employee);
+    }
+  });
+}
+
+// 2. Print Developers using the .forEach() function
+function PrintDeveloperbyForEach() {
+  employees.forEach((employee) => {
+    if (employee.profession === "developer") {
+      console.log(employee);
+    }
+  });
+}
+
+// 3. Add a new employee object to the array
+function addData() {
+  const newEmployee = {id: 4, name: "susan", age: "20", profession: "intern"};
+  employees.push(newEmployee);
+  console.log(employees);
+}
+
+// 4. Remove the employee object where profession is 'admin'
+function removeAdmin() {
+  employees = employees.filter((employee) => employee.profession !== "admin");
+  console.log(employees);
+}
+
+// 5. Concatenate array with 3 new objects and log the result
+function ConcatinateArray() {
+  const newEmployees = [
+    {id: 5, name: "mike", age: "21", profession: "designer"},
+    {id: 6, name: "lisa", age: "22", profession: "developer"},
+    {id: 7, name: "tom", age: "23", profession: "manager"}
+  ];
+  
+  const concatenatedArray = employees.concat(newEmployees);
+  console.log(concatenatedArray);
+}
+
+  </script>
+</body>
+</html>
+
